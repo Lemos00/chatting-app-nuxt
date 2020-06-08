@@ -16,8 +16,7 @@ http.listen(3000, () => {
 })
 
 socket.on('connection', (io) => { //get a parameter from the server
-    console.log(Object.keys(socket.sockets.connected).length);
-    socket.emit('connections',Object.keys(socket.sockets.connected).length)
+    socket.emit('connections', Object.keys(socket.sockets.connected).length)
 
     io.on('disconnect', () => {
         console.log('user disconnected');
