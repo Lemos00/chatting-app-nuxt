@@ -1,6 +1,5 @@
 let app = require('express')();
 let http = require('http').Server(app);
-
 let socket = require('socket.io')(http);
 
 test('should communicate', () => {
@@ -9,5 +8,10 @@ test('should communicate', () => {
     expect(message).toBe('Hello World');
   });
 });
+//check to see if connecting to the socket server actually works
+test('connection testing', () => {
+  socket.on('connection', (mySocket) => {
+    expect(mySocket).toBeDefined();
+  });
+});
 
-// CHECK this code before actually considering it a valid tests
